@@ -37,7 +37,8 @@ jobs:
           echo "dir=$dir" >> "$GITHUB_OUTPUT"
           echo "name=$name" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
-          if npm view "${name}@${version}" version >/dev/null 2>&1; then
+          # the version document appears right after publishing, the package document only minutes later
+          if curl -sf -o /dev/null "https://registry.npmjs.org/${name}/${version}"; then
             echo "published=true" >> "$GITHUB_OUTPUT"
             echo "::notice::${name}@${version} is already on npm; only the GitHub release is created"
           else
