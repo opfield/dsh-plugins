@@ -2,6 +2,7 @@ name: Release
 
 # Push a tag named <package directory>-v<version>, for example mcp-hub-v0.4.1 or
 # opfield-v0.5.2. The version must match packages/<directory>/package.json.
+# Publishing uses npm trusted publishing (OIDC): no npm token is stored in the repository.
 on:
   push:
     tags:
@@ -10,7 +11,7 @@ on:
 
 permissions:
   contents: write # GitHub release
-  id-token: write # npm provenance / trusted publishing
+  id-token: write # npm trusted publishing and provenance
 
 jobs:
   publish:
@@ -21,7 +22,7 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-          cache: npm
+          # no dependency cache in release builds
       - name: Resolve package
         id: pkg
         run: |
@@ -32,17 +33,28 @@ jobs:
           test -f "$manifest" || { echo "::error::no package directory for tag $tag"; exit 1; }
           actual="$(node -p "require('./${manifest}').version")"
           [ "$actual" = "$version" ] || { echo "::error::tag $tag but $manifest has version $actual"; exit 1; }
+          name="$(node -p "require('./${manifest}').name")"
           echo "dir=$dir" >> "$GITHUB_OUTPUT"
-          echo "name=$(node -p "require('./${manifest}').name")" >> "$GITHUB_OUTPUT"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
+          if npm view "${name}@${version}" version >/dev/null 2>&1; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::${name}@${version} is already on npm; only the GitHub release is created"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: npm version
+        run: |
+          npm --version
+          node -e "const [a,b,c]=process.argv[1].split('.').map(Number); if (a<11 || (a===11 && (b<5 || (b===5 && c<1)))) { console.error('trusted publishing needs npm >= 11.5.1'); process.exit(1) }" "$(npm --version)"
       - run: npm ci
       - run: npm test
       - name: Publish
-        run: npm publish --workspace "packages/${{ steps.pkg.outputs.dir }}" --provenance --access public
-        env:
-          # Leave NPM_TOKEN unset when npm trusted publishing is configured for this workflow.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: steps.pkg.outputs.published == 'false'
+        run: npm publish --workspace "packages/${{ steps.pkg.outputs.dir }}" --access public
       - name: GitHub release
-        run: gh release create "$GITHUB_REF_NAME" --title "${{ steps.pkg.outputs.name }} ${{ steps.pkg.outputs.version }}" --generate-notes
+        run: |
+          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 \
+            || gh release create "$GITHUB_REF_NAME" --title "${{ steps.pkg.outputs.name }} ${{ steps.pkg.outputs.version }}" --generate-notes
         env:
           GH_TOKEN: ${{ github.token }}
