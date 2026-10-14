@@ -14,7 +14,7 @@ No build step: plain JavaScript files. The plugin uses the MCP SDK that ships in
 
 ## Install
 
-1. In DSH open **Plugins → Add plugin**, enter `@opfield/dsh-mcp-hub`, then **Enable now**.
+1. In DSH open **Plugins → Add plugin**, enter `@opfield/dsh-mcp-hub` (or `github:opfield/dsh-plugins#path:/packages/mcp-hub` to install from GitHub), then **Enable now**.
 2. **Move existing MCP servers** (only if they are configured through `dsh-mcp-client`). Quit DSH and run the migration with the Node built into DSH (it needs `yaml` from the DSH installation):
    ```sh
    DSH="/Applications/DeepSeek Harness.app/Contents/MacOS/DeepSeek Harness"

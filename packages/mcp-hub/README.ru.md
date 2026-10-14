@@ -14,7 +14,7 @@
 
 ## Установка
 
-1. **Установи плагин:** **Plugins → Add plugin**, введи `@opfield/dsh-mcp-hub`, затем **Enable now**.
+1. **Установи плагин:** **Plugins → Add plugin**, введи `@opfield/dsh-mcp-hub` (или `github:opfield/dsh-plugins#path:/packages/mcp-hub`, чтобы поставить с GitHub), затем **Enable now**.
 2. **Перенеси свои MCP-серверы** (если они уже настроены через `dsh-mcp-client`). Закрой DSH и запусти миграцию встроенным в DSH Node (скрипту нужен `yaml` из установки DSH):
    ```sh
    DSH="/Applications/DeepSeek Harness.app/Contents/MacOS/DeepSeek Harness"

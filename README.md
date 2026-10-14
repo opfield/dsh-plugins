@@ -9,12 +9,18 @@ Plugins for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 
 
 ## Install
 
-In DSH open **Plugins → Add plugin** and enter the package name, for example `@opfield/dsh-mcp-hub`. Without npm, install straight from this repository:
+In DSH open **Plugins → Add plugin**, enter a spec from the table, then **Enable now**. Install MCP Hub first: the Opfield plugin needs it. Restart DSH after adding Opfield.
 
-```
-github:opfield/dsh-plugins#path:/packages/mcp-hub
-github:opfield/dsh-plugins#mcp-hub-v0.4.1&path:/packages/mcp-hub
-```
+| Plugin | From npm | From this repository |
+|---|---|---|
+| MCP Hub | `@opfield/dsh-mcp-hub` | `github:opfield/dsh-plugins#path:/packages/mcp-hub` |
+| Opfield | `@opfield/dsh-opfield` | `github:opfield/dsh-plugins#path:/packages/opfield` |
+
+To pin a version from the repository, add its tag before `path`: `github:opfield/dsh-plugins#mcp-hub-v0.4.1&path:/packages/mcp-hub`, `github:opfield/dsh-plugins#opfield-v0.5.2&path:/packages/opfield`.
+
+Then open **Plugins → Opfield → Add instance**, enter the instance address and press **Sign in**. Each package's README covers the details: [MCP Hub](packages/mcp-hub#install), [Opfield](packages/opfield#install).
+
+DSH does not update plugins yet: to upgrade, remove the plugin and add the new version.
 
 ## Development
 

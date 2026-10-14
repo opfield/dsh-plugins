@@ -16,7 +16,7 @@
 ## Установка
 
 1. **Установи [MCP Hub](../mcp-hub)** (`@opfield/dsh-mcp-hub`). Через него идут вход и все запросы к Opfield.
-2. **Plugins → Add plugin**: введи `@opfield/dsh-opfield`, затем **Enable now**. Перезапусти DSH.
+2. **Plugins → Add plugin**: введи `@opfield/dsh-opfield` (или `github:opfield/dsh-plugins#path:/packages/opfield`, чтобы поставить с GitHub), затем **Enable now**. Перезапусти DSH.
 3. **Plugins → Opfield → Add instance**: введи адрес, например `https://ops.example.com`, затем **Sign in**. Первый добавленный инстанс сразу выбирается источником моделей.
 
 Через несколько секунд после входа в выборе модели появится Opfield, а под композером — остаток бюджета.

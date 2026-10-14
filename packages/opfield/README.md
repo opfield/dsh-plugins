@@ -16,7 +16,7 @@ No build step: plain JavaScript files.
 ## Install
 
 1. **Install [MCP Hub](https://github.com/opfield/dsh-plugins/tree/main/packages/mcp-hub)** (`@opfield/dsh-mcp-hub`). Sign-in and every request to Opfield go through it.
-2. **Plugins → Add plugin**: enter `@opfield/dsh-opfield`, then **Enable now**. Restart DSH.
+2. **Plugins → Add plugin**: enter `@opfield/dsh-opfield` (or `github:opfield/dsh-plugins#path:/packages/opfield` to install from GitHub), then **Enable now**. Restart DSH.
 3. **Plugins → Opfield → Add instance**: enter the address, for example `https://ops.example.com`, then **Sign in**. The first instance becomes the model source right away.
 
 A few seconds after sign-in Opfield shows up in the model picker and the budget under the composer.
