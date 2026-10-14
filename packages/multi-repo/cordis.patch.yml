@@ -1,0 +1,20 @@
+- insert:
+    - id: multi-repo
+      name: '@opfield/dsh-multi-repo'
+      config:
+        # Make attached roots writable under workspace-write, like the primary
+        # root (file tools and the bash/terminal sandbox). false keeps them
+        # read-only unless the session runs in danger-full-access.
+        extendSandbox: true
+        # Instruction files read at the top of each attached root and shown
+        # to the model (the primary root's own files load as usual).
+        instructionFiles: [AGENTS.md, AGENTS.override.md, CLAUDE.md, AGENTS.local.md, CLAUDE.local.md]
+        # Byte budget for those instruction files in the model context.
+        instructionMaxBytes: 32768
+        gitTimeoutMs: 15000
+        maxChangedFiles: 50
+        # Folders whose Git repositories the composer panel suggests.
+        suggestionDirs: ['~/projects']
+        # Rename the sidebar workspace group to `api + web` (only default or
+        # plugin-made titles; a title you set yourself is kept).
+        workspaceTitle: true

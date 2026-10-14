@@ -1,0 +1,1 @@
+{ "meta": { "title": "多根工作区", "description": "将其他仓库挂载到工作区，类似 Codex 应用的多文件夹项目：同一工作区的所有会话共享这些根目录，在 workspace-write 模式下可写，其 AGENTS.md 会进入模型上下文。" } }

@@ -1,13 +1,14 @@
 name: Release
 
-# Push a tag named <package directory>-v<version>, for example mcp-hub-v0.4.1 or
-# opfield-v0.5.2. The version must match packages/<directory>/package.json.
+# Push a tag named <package directory>-v<version>, for example mcp-hub-v0.4.1,
+# opfield-v0.5.2 or multi-repo-v0.3.0. The version must match packages/<directory>/package.json.
 # Publishing uses npm trusted publishing (OIDC): no npm token is stored in the repository.
 on:
   push:
     tags:
       - 'mcp-hub-v*'
       - 'opfield-v*'
+      - 'multi-repo-v*'
 
 permissions:
   contents: write # GitHub release

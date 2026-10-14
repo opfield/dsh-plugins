@@ -1,0 +1,1 @@
+{ "meta": { "title": "Multi-root workspaces", "description": "Attach other repositories to a workspace, like multi-folder projects in the Codex app: shared roots for every session, writable under workspace-write, with their AGENTS.md in the model context." } }

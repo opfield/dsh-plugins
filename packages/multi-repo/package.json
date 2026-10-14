@@ -1,0 +1,66 @@
+{
+  "name": "@opfield/dsh-multi-repo",
+  "version": "0.3.0",
+  "description": "Multi-root workspaces for DeepSeek Harness: attach other repositories to a workspace, writable under workspace-write, listed in the model context with their AGENTS.md, and editable from the composer or /roots",
+  "license": "MIT",
+  "author": "Opfield",
+  "homepage": "https://github.com/opfield/dsh-plugins/tree/main/packages/multi-repo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opfield/dsh-plugins.git",
+    "directory": "packages/multi-repo"
+  },
+  "bugs": {
+    "url": "https://github.com/opfield/dsh-plugins/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "core.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "README.md",
+    "README.ru.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "workspace",
+    "multi-root",
+    "monorepo",
+    "sandbox"
+  ]
+}
