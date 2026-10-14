@@ -1,6 +1,6 @@
 {
   "name": "@opfield/dsh-opfield",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Opfield for DeepSeek Harness: instances with MCP tools through the MCP Hub, models from one instance with an automatic inference token and model sync, and budget / prompt-cache timer / compact offer components",
   "license": "MIT",
   "author": "Opfield",

@@ -1,6 +1,6 @@
 {
   "name": "@opfield/dsh-mcp-hub",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "MCP Hub for DeepSeek Harness: every MCP server in one place, per-server eager / lazy / auto tool exposure, OAuth for HTTP servers, direct node launch of npx packages, and the mcpHub service for plugins that contribute servers",
   "license": "MIT",
   "author": "Opfield",
