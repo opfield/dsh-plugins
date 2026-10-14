@@ -1,0 +1,17 @@
+- insert:
+    - id: mcp-hub
+      name: '@opfield/dsh-mcp-hub'
+      config:
+        # Servers are added on Plugins → MCP hub. Each entry:
+        #   name, enabled, mode (eager | lazy | auto), transport (stdio | http),
+        #   command/args/env/cwd or url/headers, idleStopMinutes (0 = keep running),
+        #   connectAtStartup, catalog (full | names), instructions (auto | full |
+        #   summary | off), description, toolCallTimeoutMs.
+        # env / header values of the form $cred:NAME read the credential store.
+        servers: []
+        # auto mode: eager when a server's schemas fit in this many tokens.
+        autoEagerMaxTokens: 2500
+        startupTimeoutMs: 30000
+        catalogLineChars: 120
+        # Loopback port for the OAuth browser callback (0 = any free port).
+        oauthCallbackPort: 33419

@@ -1,0 +1,5 @@
+{
+  "name": "@opfield/dsh-opfield/budget",
+  "description": "Ring under the composer with the remaining Opfield budget while the chat uses its models.",
+  "icon": "./icon.svg"
+}

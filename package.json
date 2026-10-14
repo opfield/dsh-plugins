@@ -1,0 +1,25 @@
+{
+  "name": "dsh-plugins",
+  "private": true,
+  "description": "Opfield plugins for DeepSeek Harness",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces",
+    "pack:all": "npm pack --workspaces --pack-destination dist"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-mcp-client": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-subprocess": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
+    "@deepseek-ai/schemastery": "3.18.4",
+    "@modelcontextprotocol/client": "2.0.0",
+    "yaml": "2.9.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

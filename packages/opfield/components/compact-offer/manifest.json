@@ -1,0 +1,5 @@
+{
+  "name": "@opfield/dsh-opfield/compact-offer",
+  "description": "Offers /compact above the input once the prompt cache has expired and the context is big.",
+  "icon": "./icon.svg"
+}

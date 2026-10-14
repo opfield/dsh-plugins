@@ -1,0 +1,20 @@
+- insert:
+    - id: opfield-usage
+      name: '@opfield/dsh-opfield'
+      config:
+        # Opfield instances; set them up in Plugins → Opfield. Each becomes an
+        # MCP Hub server (always lazy): { name, url, mcp: true|false }.
+        instances: []
+        # Name of the one instance that serves models ('' = none).
+        inference: ''
+        # Prompt-cache lifetime for the timer: 60 (extended) or 5 (standard).
+        promptCacheTtlMinutes: 60
+        # The /compact offer needs at least this much context.
+        compactMinTokens: 30000
+    # Components: turn each on or off in Plugins → Components.
+    - id: opfield-budget
+      name: '@opfield/dsh-opfield/budget'
+    - id: opfield-cache-timer
+      name: '@opfield/dsh-opfield/cache-timer'
+    - id: opfield-compact-offer
+      name: '@opfield/dsh-opfield/compact-offer'

@@ -1,0 +1,5 @@
+{
+  "name": "@opfield/dsh-opfield/cache-timer",
+  "description": "Time until the provider drops the cached prompt of the chat, under the composer.",
+  "icon": "./icon.svg"
+}

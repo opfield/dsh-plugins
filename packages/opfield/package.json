@@ -1,0 +1,81 @@
+{
+  "name": "@opfield/dsh-opfield",
+  "version": "0.5.2",
+  "description": "Opfield for DeepSeek Harness: instances with MCP tools through the MCP Hub, models from one instance with an automatic inference token and model sync, and budget / prompt-cache timer / compact offer components",
+  "license": "MIT",
+  "author": "Opfield",
+  "homepage": "https://github.com/opfield/dsh-plugins/tree/main/packages/opfield#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opfield/dsh-plugins.git",
+    "directory": "packages/opfield"
+  },
+  "bugs": {
+    "url": "https://github.com/opfield/dsh-plugins/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./budget": "./components/budget/index.js",
+    "./budget/package.json": "./components/budget/manifest.json",
+    "./budget/locale/*.json": "./components/budget/locale/*.json",
+    "./cache-timer": "./components/cache-timer/index.js",
+    "./cache-timer/package.json": "./components/cache-timer/manifest.json",
+    "./cache-timer/locale/*.json": "./components/cache-timer/locale/*.json",
+    "./compact-offer": "./components/compact-offer/index.js",
+    "./compact-offer/package.json": "./components/compact-offer/manifest.json",
+    "./compact-offer/locale/*.json": "./components/compact-offer/locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "instances.js",
+    "model-sync.js",
+    "client.js",
+    "components/*/index.js",
+    "components/*/manifest.json",
+    "components/*/icon.svg",
+    "components/*/locale/*.json",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "README.md",
+    "README.ru.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "opfield",
+    "inference",
+    "mcp"
+  ]
+}
