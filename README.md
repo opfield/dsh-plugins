@@ -1,5 +1,7 @@
 # Opfield plugins for DeepSeek Harness
 
+[![M8ven Score](https://m8ven.ai/badge/mcp/opfield-dsh-plugins-15xyjw?v=dd7dfd3959186b71adec04c71673214a)](https://m8ven.ai/mcp/opfield-dsh-plugins-15xyjw?s=readme)
+
 Plugins for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH).
 
 | Package | What it does |
