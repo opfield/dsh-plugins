@@ -1,6 +1,6 @@
 {
   "name": "@opfield/dsh-multi-repo",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Multi-root workspaces for DeepSeek Harness: attach other repositories to a workspace, writable under workspace-write, listed in the model context with their AGENTS.md, and editable from the composer or /roots",
   "license": "MIT",
   "author": "Opfield",
